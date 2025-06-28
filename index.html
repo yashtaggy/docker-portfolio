@@ -1,218 +1,762 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yash Tagunde | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --card: #fff;
-      --text: #333;
-      --primary: #007bff;
-      --tag-bg: #007bff;
-      --tag-color: #fff;
-    }
-    [data-theme="dark"] {
-      --bg: #121212;
-      --card: #1e1e1e;
-      --text: #f0f0f0;
-      --primary: #1fa2ff;
-      --tag-bg: #1fa2ff;
-      --tag-color: #000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Bharat Tagunde - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Colors */
+        :root {
+            /* Light Mode Colors */
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #f8f8f8;
+            --text-primary: #333;
+            --text-secondary: #2c3e50;
+            --card-bg: #ffffff;
+            --accent-blue: #3498db;
+            --accent-dark-blue: #2980b9;
+            --header-bg-start: #2563eb;
+            --header-bg-end: #4f46e5;
+            --skill-bg: #e0f2fe;
+            --skill-text: #1e40af;
+            --project-skill-bg: #d1fae5;
+            --project-skill-text: #065f46;
+            --footer-bg: #1f2937;
+            --header-link-color: #fff;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: all 0.3s ease;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: var(--card);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .profile-photo {
-      width: 120px;
-      height: 120px;
-      background: #ccc;
-      border-radius: 50%;
-      border: 4px solid var(--primary);
-      background-image: url('passportsize.jpeg');
-      background-size: cover;
-      background-position: center;
-    }
-    .intro {
-      flex: 1;
-      margin-left: 30px;
-    }
-    h1 { font-size: 2.5rem; margin: 0; }
-    .tagline { font-size: 1.2rem; color: var(--text); }
-    .section {
-      margin-top: 50px;
-      background: var(--card);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 0.8s ease-out forwards;
-    }
-    .section:nth-child(even) { animation-delay: 0.2s; }
-    .section:nth-child(odd) { animation-delay: 0.4s; }
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    .section h2 {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    .skills, .edu, .certs, .langs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-color);
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      .intro { margin-left: 0; margin-top: 20px; }
-    }
-  </style>
+        /* Dark Mode Colors */
+        body.dark-mode {
+            --bg-primary: #1a202c; /* Dark background */
+            --bg-secondary: #2d3748; /* Slightly lighter dark background */
+            --text-primary: #e2e8f0; /* Light text */
+            --text-secondary: #cbd5e0; /* Lighter text for headings */
+            --card-bg: #2d3748; /* Darker card background */
+            --accent-blue: #63b3ed; /* Lighter blue for dark mode */
+            --accent-dark-blue: #4299e1;
+            --header-bg-start: #1a202c;
+            --header-bg-end: #2d3748;
+            --skill-bg: #4a5568;
+            --skill-text: #e2e8f0;
+            --project-skill-bg: #48bb78;
+            --project-skill-text: #1a202c;
+            --footer-bg: #1a202c;
+            --header-link-color: #90cdf4;
+        }
+
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Container for content width */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Section Title Styling */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Card Styling for sections and individual items */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Icon Styling */
+        .icon {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            fill: currentColor; /* Ensures the SVG icon color changes with text color */
+        }
+
+        /* Link Styling */
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Header Specific Styles */
+        header {
+            background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
+            color: #fff;
+            padding: 3rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            position: relative; /* For dark mode toggle positioning */
+            transition: background 0.3s ease;
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        header .contact-info p {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        header .contact-info a {
+            color: var(--header-link-color);
+            transition: color 0.3s ease;
+        }
+
+        header .contact-info a:hover {
+            color: #90cdf4; /* A lighter blue for hover in dark mode header */
+        }
+
+        /* Profile Image */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .dark-mode-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+
+        /* Skills Section Specific Styles */
+        #skills {
+            background-color: var(--bg-secondary);
+            padding: 4rem 0;
+        }
+        #skills .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        #skills .skill-item {
+            background-color: var(--skill-bg);
+            color: var(--skill-text);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Projects Section Specific Styles */
+        #projects {
+            padding: 4rem 0;
+        }
+        #projects .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        #projects .project-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        #projects .project-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        #projects .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        #projects .project-card .date {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        #projects .project-card ul {
+            list-style: disc;
+            padding-left: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        #projects .project-card ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        #projects .project-card .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #projects .project-card .skill-tags span {
+            background-color: var(--project-skill-bg);
+            color: var(--project-skill-text);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Internship & Education Specific Styles (similar to project card) */
+        #internships {
+            background-color: var(--bg-secondary);
+            padding: 4rem 0;
+        }
+        #internships .internship-item,
+        #education .education-item {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        #internships .internship-item:hover,
+        #education .education-item:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        #internships .internship-item h3,
+        #education .education-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        #internships .internship-item p,
+        #education .education-item p {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        #internships .internship-item .date,
+        #education .education-item .date {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        #internships .internship-item ul {
+            list-style: disc;
+            padding-left: 1.25rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        /* Certifications Specific Styles */
+        #certifications {
+            background-color: var(--bg-secondary);
+            padding: 4rem 0;
+        }
+        #certifications .certs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        #certifications .cert-item {
+            background-color: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        #certifications .cert-item:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        #certifications .cert-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        #certifications .cert-item p {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Extra-curricular & Interests Specific Styles */
+        #extra-interests {
+            padding: 4rem 0;
+        }
+        #extra-interests .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        #extra-interests .activity-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        #extra-interests .activity-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        #extra-interests .activity-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        #extra-interests .activity-card ul {
+            list-style: disc;
+            padding-left: 1.25rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--footer-bg);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design - Media Queries */
+        @media (min-width: 768px) { /* md breakpoint */
+            header .container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            header .header-left {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            header p {
+                margin-bottom: 0;
+            }
+
+            header .contact-info {
+                text-align: right;
+            }
+
+            #projects .project-grid,
+            #certifications .certs-grid,
+            #extra-interests .grid-layout {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            #projects .project-grid,
+            #certifications .certs-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+            }
+        }
+    </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  <div class="container">
+
+    <!-- Header Section -->
     <header>
-      <div class="profile-photo"></div>
-      <div class="intro">
-        <h1>Yash Tagunde</h1>
-        <p class="tagline">B.Tech CSE – AI & Edge Computing | Cloud & DevOps Enthusiast</p>
-        <p>
-          <a href="mailto:yashtaggy1603@gmail.com">yashtaggy1603@gmail.com</a> · 
-          <a href="tel:+919689151132">+91 9689151132</a>
-        </p>
-        <p>
-          <a href="https://linkedin.com/in/yash-t-a4330b1b5" target="_blank">LinkedIn</a> ·
-          <a href="https://github.com/yashtaggy" target="_blank">GitHub</a>
-        </p>
-      </div>
+        <div class="container">
+            <div class="header-left">
+                <!-- Professional Photograph Placeholder -->
+                <img src="passportsize.jpeg" alt="Yash Bharat Tagunde" class="profile-image">
+                <div>
+                    <h1>Yash Bharat Tagunde</h1>
+                    <p>B.Tech. - Computer Science Engineering </p>
+                    <p>Specialization: Artificial Intelligence and Edge Computing</p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <p><svg class="icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.956.71l1.25 4.298a1 1 0 01-.54 1.155l-1.745.723a1 1 0 00-.5.868v2.731a1 1 0 00.174.553l.067.098a1 1 0 00.868.5l2.731-.5a1 1 0 00.868.5l.723-1.745a1 1 0 011.155-.54l4.298 1.25a1 1 0 01.71.956V17a1 1 0 01-1 1h-2.153a1 1 0 01-.956-.71l-1.25-4.298a1 1 0 01.54-1.155l1.745-.723a1 1 0 00.5-.868v-2.731a1 1 0 00-.174-.553l-.067-.098a1 1 0 00-.868-.5l-2.731.5a1 1 0 00-.868.5l-.723 1.745a1 1 0 01-1.155.54l-4.298-1.25A1 1 0 013 3z"/></svg> +91-9689151132</p>
+                <p><svg class="icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg> <a href="mailto:yashtaggy1603@gmail.com">yashtaggy1603@gmail.com</a></p>
+                <p><svg class="icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16 4H4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2zm-1.5 6.5a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v3z" clip-rule="evenodd"/></svg> <a href="https://linkedin.com/in/yash-1-a4330b1b5" target="_blank">LinkedIn Profile</a></p>
+                <p><svg class="icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm3-1a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2zm-3 4a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg> Pune, Maharashtra, India-411046</p>
+            </div>
+        </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="darkModeToggle" class="dark-mode-toggle">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span>Dark Mode</span>
+        </button>
     </header>
 
-    <div class="section">
-      <h2>About Me</h2>
-      <p>A highly motivated fresher passionate about computer science, cloud, and automation. Dedicated, hardworking, and eager to apply technical skills in real-world DevOps and AI/ML projects.</p>
-    </div>
+    <!-- About Me Section -->
+    <section id="about" class="py-16">
+        <div class="container card">
+            <h2 class="section-title">About Me</h2>
+            <p style="font-size: 1.125rem; line-height: 1.75rem; text-align: center;">
+                A highly motivated fresher with a strong interest in computer science and automation. Dedicated, hardworking, and eager to apply
+                knowledge in real-world projects while contributing to collaborative development in a professional environment.
+            </p>
+        </div>
+    </section>
 
-    <div class="section">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="tag">Python</div><div class="tag">Java</div><div class="tag">Docker</div>
-        <div class="tag">Jenkins</div><div class="tag">CI/CD</div><div class="tag">AWS</div>
-        <div class="tag">GCP</div><div class="tag">NLP</div><div class="tag">MySQL</div>
-        <div class="tag">HTML & CSS</div><div class="tag">JavaScript</div>
-      </div>
-    </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container card">
+            <h2 class="section-title">Key Expertise</h2>
+            <div class="skill-grid">
+                <span class="skill-item">Python Programming</span>
+                <span class="skill-item">Generative AI NLP</span>
+                <span class="skill-item">Text Analytics AI/ML</span>
+                <span class="skill-item">Google Cloud Platform (GCP)</span>
+                <span class="skill-item">Amazon Web Services (AWS)</span>
+                <span class="skill-item">Java Programming</span>
+                <span class="skill-item">CI/CD</span>
+                <span class="skill-item">Database- MySQL</span>
+                <span class="skill-item">HTML & CSS</span>
+                <span class="skill-item">Javascript</span>
+                <span class="skill-item">Interpersonal Skills & Strong Communication</span>
+                <span class="skill-item">Microsoft Office</span>
+            </div>
+        </div>
+    </section>
 
-    <div class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Volunteer Connect:</strong> <a href="https://github.com/yashtaggy/volunteer-connect" target="_blank">GitHub Link</a></li>
-        <li><strong>Web Scraper (Python):</strong> <a href="https://github.com/yashtaggy/Python-based-Web-Scraper" target="_blank">GitHub Link</a></li>
-        <li><strong>Smart Home Automation using Arduino Nano BLE</strong></li>
-      </ul>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container card">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Volunteer Connect - NGO-Volunteer Matching Platform</h3>
+                    <p class="date">June 2025 - July 2025</p>
+                    <ul>
+                        <li>Developed a full-stack web application to streamline NGO-volunteer engagement by enabling skill, location, and availability-based matchmaking.</li>
+                        <li>Engineered RESTful APIs using Spring Boot, supporting role-based access for NGOs, volunteers, and admins with secure JWT-based authentication.</li>
+                        <li>Designed scalable and relational data models in PostgreSQL (also explored MongoDB) for structured handling of user profiles, events, applications, and badge systems.</li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span>Java Spring Boot</span>
+                        <span>REST APIs</span>
+                        <span>PostgreSQL</span>
+                        <span>Dockers</span>
+                        <span>R</span>
+                    </div>
+                    <a href="https://github.com/yashtaggy/volunteer-connect.git" target="_blank">View Project &rarr;</a>
+                </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <div class="edu">
-        <p><strong>MIT School of Computing</strong> – B.Tech. CSE – 8.07 CGPA (2022–2026)</p>
-        <p><strong>PVG's Muktangan Jr. College</strong> – HSC – 71.67%</p>
-        <p><strong>Maharashtriya Mandal Eng. Med. School</strong> – SSC – 81.20%</p>
-      </div>
-    </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Smart Home Automation using Arduino Nano BLE accelerometer</h3>
+                    <p class="date">January 2025 - May 2025</p>
+                    <ul>
+                        <li>Designed a gesture-controlled home automation system using an accelerometer and Arduino Nano BLE, enabling wireless control of appliances via hand movements over Bluetooth.</li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span>Arduino Nano BLE</span>
+                        <span>C/C++</span>
+                        <span>Accelerometer</span>
+                    </div>
+                </div>
 
-    <div class="section">
-      <h2>Certifications</h2>
-      <div class="certs">
-        <div class="tag">AWS Academy Cloud Development</div>
-        <div class="tag">IBM NoSQL Essentials</div>
-        <div class="tag">DevOps on AWS</div>
-        <div class="tag">Java – IIT Spoken Tutorial</div>
-        <div class="tag">French – DELF B2</div>
-      </div>
-    </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>Web-Scraper using Python</h3>
+                    <p class="date">September 2024 - October 2024</p>
+                    <ul>
+                        <li>Built a Python-based web scraper to extract structured data from dynamic websites, automate data collection, and export results to CSV/Excel for further analysis.</li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                    </div>
+                    <a href="https://github.com/yashtaggy/Python-based-Web-Scraper.git" target="_blank">View Project &rarr;</a>
+                </div>
 
-    <div class="section">
-      <h2>Languages & Interests</h2>
-      <div class="langs">
-        <div class="tag">English</div><div class="tag">French</div>
-        <div class="tag">Hindi</div><div class="tag">Marathi</div>
-        <div class="tag">Reading</div><div class="tag">Hiking</div>
-      </div>
-    </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                  <h3>Cloud-Deployed Portfolio with Docker and Jenkins</h3>
+                  <p class="date">June 2025</p>
+                  <ul>
+                      <li>Designed and deployed a static portfolio website using HTML/CSS</li>
+                      <li>Containerized the application using Docker and hosted source code on GitHub</li>
+                      <li>Configured Jenkins to automate Docker image builds upon code changes (CI)</li>
+                      <li>Deployed containerized app to cloud using Render for live hosting (CD)</li>
+                  </ul>
+                  <div class="skill-tags">
+                      <span>Dockers</span>
+                      <span>Jenkins</span>
+                      <span>GitHub</span>
+                      <span>Render</span>
+                      <span>CI/CD</span>
+                  </div>
+                  <a href="https://github.com/yashtaggy/docker-portfolio.git" target="_blank">View Project &rarr;</a>
+              </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Internships Section -->
+    <section id="internships">
+        <div class="container card">
+            <h2 class="section-title">Internships</h2>
+            <div class="internship-item">
+                <h3>IoT Development Intern</h3>
+                <p>eMaestro Technologies Pvt. Ltd | IT/Computers - Hardware</p>
+                <p class="date">June 2023 - July 2023</p>
+                <ul>
+                    <li>Provided technical assistance to other engineers & staff.</li>
+                    <li>Performed research on new materials, components, and technologies used in engineering applications.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container card">
+            <h2 class="section-title">Education</h2>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="education-item">
+                    <h3>B.Tech. CSE - Artificial Intelligence and Edge Computing</h3>
+                    <p>MIT School of Computing</p>
+                    <p class="date">2022 - 2026 | CGPA: 8.07/10</p>
+                </div>
+                <div class="education-item">
+                    <h3>12th (HSC)</h3>
+                    <p>PVG's Muktangan Jr. College</p>
+                    <p class="date">2022 | Percentage: 71.67%</p>
+                </div>
+                <div class="education-item">
+                    <h3>10th (SSC)</h3>
+                    <p>Maharashtriya Mandal Eng. Med. School</p>
+                    <p class="date">2020 | Percentage: 81.20%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container card">
+            <h2 class="section-title">Assessments/Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-item">
+                    <h3>AWS Academy Graduate - AWS Academy Cloud Development</h3>
+                    <p>Key Skills: Cloud Computing, AWS</p>
+                </div>
+                <div class="cert-item">
+                    <h3>IIT Spoken Tutorial: Java Training</h3>
+                    <p>Key Skills: Java</p>
+                </div>
+                <div class="cert-item">
+                    <h3>NoSQL Databases Essentials by IBM - Coursera</h3>
+                </div>
+                <div class="cert-item">
+                    <h3>DevOps on AWS</h3>
+                    <p>Key Skills: CI/CD</p>
+                </div>
+                <div class="cert-item">
+                    <h3>Diplôme d'Études en Langue Française-DELF Level-B2</h3>
+                    <p>Aggregate: 77.50/100 | Key Skills: French</p>
+                </div>
+                <div class="cert-item">
+                    <h3>Global Diploma in French Language</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra-curricular & Interests Section -->
+    <section id="extra-interests">
+        <div class="container card">
+            <h2 class="section-title">Extra-curricular & Interests</h2>
+            <div class="grid-layout">
+                <div class="activity-card">
+                    <h3>Extra Curricular Activities</h3>
+                    <ul>
+                        <li>Volunteer & Centre Co-Ordinator at a NGO "Bhumi Foundation", involved in teaching underprivileged kids and organizing events.</li>
+                    </ul>
+                </div>
+                <div class="activity-card">
+                    <h3>Personal Interests / Hobbies</h3>
+                    <ul>
+                        <li>Reading</li>
+                        <li>Hiking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      © 2025 Yash Tagunde · Built with ❤️ using HTML & CSS
+        <div class="container">
+            <p>&copy; 2025 Yash Bharat Tagunde. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">Designed with ❤️ using HTML5 & CSS</p>
+        </div>
     </footer>
-  </div>
 
-  <script>
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    }
-    window.onload = () => {
-      const saved = localStorage.getItem('theme');
-      if (saved) document.documentElement.setAttribute('data-theme', saved);
-    };
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+
+            // Check for saved dark mode preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                darkModeToggle.querySelector('span').textContent = 'Light Mode';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                darkModeToggle.querySelector('span').textContent = 'Dark Mode';
+            }
+
+            // Toggle dark mode on button click
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                    darkModeToggle.querySelector('span').textContent = 'Light Mode';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                    darkModeToggle.querySelector('span').textContent = 'Dark Mode';
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -1,37 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Yash Tagunde - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Tagunde | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --card: #fff;
+      --text: #333;
+      --primary: #007bff;
+      --tag-bg: #007bff;
+      --tag-color: #fff;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --card: #1e1e1e;
+      --text: #f0f0f0;
+      --primary: #1fa2ff;
+      --tag-bg: #1fa2ff;
+      --tag-color: #000;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: var(--card);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      background: #ccc;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      background-image: url('passportsize.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .intro {
+      flex: 1;
+      margin-left: 30px;
+    }
+    h1 { font-size: 2.5rem; margin: 0; }
+    .tagline { font-size: 1.2rem; color: var(--text); }
+    .section {
+      margin-top: 50px;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+    .section:nth-child(even) { animation-delay: 0.2s; }
+    .section:nth-child(odd) { animation-delay: 0.4s; }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .section h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .skills, .edu, .certs, .langs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    @media(max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .intro { margin-left: 0; margin-top: 20px; }
+    }
+  </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
   <div class="container">
-    <h1>Hello, I'm <span class="highlight">Yash 👋</span></h1>
-    <p class="subheading">Final-year CSE student | Cloud & DevOps Enthusiast</p>
+    <header>
+      <div class="profile-photo"></div>
+      <div class="intro">
+        <h1>Yash Tagunde</h1>
+        <p class="tagline">B.Tech CSE – AI & Edge Computing | Cloud & DevOps Enthusiast</p>
+        <p>
+          <a href="mailto:yashtaggy1603@gmail.com">yashtaggy1603@gmail.com</a> · 
+          <a href="tel:+919689151132">+91 9689151132</a>
+        </p>
+        <p>
+          <a href="https://linkedin.com/in/yash-t-a4330b1b5" target="_blank">LinkedIn</a> ·
+          <a href="https://github.com/yashtaggy" target="_blank">GitHub</a>
+        </p>
+      </div>
+    </header>
+
+    <div class="section">
+      <h2>About Me</h2>
+      <p>A highly motivated fresher passionate about computer science, cloud, and automation. Dedicated, hardworking, and eager to apply technical skills in real-world DevOps and AI/ML projects.</p>
+    </div>
 
     <div class="section">
       <h2>Skills</h2>
-      <ul class="skills">
-        <li>Docker</li>
-        <li>Jenkins</li>
-        <li>Git & GitHub</li>
-        <li>HTML/CSS</li>
-        <li>Cloud Deployment (Render)</li>
-      </ul>
+      <div class="skills">
+        <div class="tag">Python</div><div class="tag">Java</div><div class="tag">Docker</div>
+        <div class="tag">Jenkins</div><div class="tag">CI/CD</div><div class="tag">AWS</div>
+        <div class="tag">GCP</div><div class="tag">NLP</div><div class="tag">MySQL</div>
+        <div class="tag">HTML & CSS</div><div class="tag">JavaScript</div>
+      </div>
     </div>
 
     <div class="section">
       <h2>Projects</h2>
-      <p><strong>DevOps Portfolio:</strong> <a href="https://github.com/yashtaggy/docker-portfolio" target="_blank">View on GitHub</a></p>
+      <ul>
+        <li><strong>Volunteer Connect:</strong> <a href="https://github.com/yashtaggy/volunteer-connect" target="_blank">GitHub Link</a></li>
+        <li><strong>Web Scraper (Python):</strong> <a href="https://github.com/yashtaggy/Python-based-Web-Scraper" target="_blank">GitHub Link</a></li>
+        <li><strong>Smart Home Automation using Arduino Nano BLE</strong></li>
+      </ul>
     </div>
 
     <div class="section">
-      <h2>Contact</h2>
-      <p>Email: yash@example.com</p>
-      <p>GitHub: <a href="https://github.com/yashtaggy" target="_blank">github.com/yashtaggy</a></p>
+      <h2>Education</h2>
+      <div class="edu">
+        <p><strong>MIT School of Computing</strong> – B.Tech. CSE – 8.07 CGPA (2022–2026)</p>
+        <p><strong>PVG's Muktangan Jr. College</strong> – HSC – 71.67%</p>
+        <p><strong>Maharashtriya Mandal Eng. Med. School</strong> – SSC – 81.20%</p>
+      </div>
     </div>
+
+    <div class="section">
+      <h2>Certifications</h2>
+      <div class="certs">
+        <div class="tag">AWS Academy Cloud Development</div>
+        <div class="tag">IBM NoSQL Essentials</div>
+        <div class="tag">DevOps on AWS</div>
+        <div class="tag">Java – IIT Spoken Tutorial</div>
+        <div class="tag">French – DELF B2</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Languages & Interests</h2>
+      <div class="langs">
+        <div class="tag">English</div><div class="tag">French</div>
+        <div class="tag">Hindi</div><div class="tag">Marathi</div>
+        <div class="tag">Reading</div><div class="tag">Hiking</div>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 Yash Tagunde · Built with ❤️ using HTML & CSS
+    </footer>
   </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+    window.onload = () => {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    };
+  </script>
 </body>
 </html>

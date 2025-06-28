@@ -1,15 +1,69 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-    text-align: center;
-    padding: 50px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #333;
   }
   
   .container {
     background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    display: inline-block;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 60px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .highlight {
+    color: #007bff;
+  }
+  
+  .subheading {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .section {
+    margin-top: 30px;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  .skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .skills li {
+    background: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
   }
   
